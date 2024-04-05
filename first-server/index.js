@@ -1,27 +1,24 @@
 const express = require("express");
 const app = express();
 
-const serveIndex = (req, res, next) => {
-  res.sendFile(__dirname + "/index.html");
-};
-
+const serveIndex = (req, res, next) => res.sendFile(__dirname + "/index.html");
 const serveAbout = (req, res, next) => {
   res.send("<h1>About</h1>");
 };
 
 const serveHello = (req, res, next) => {
-    const name = req.query.name || "world";
-    res.send(`<h1>Hello ${name}</h1>`);
+  const name = req.query.name || "world";
+  res.send(`<h1>Hello ${name}</h1>`);
 }
 
 const serveFood = (req, res, next) => {
-    const food = [{ food: 'spaghetti', food: 'steak'}]
-    res.send(food)
+  const food = [{ food: 'spaghetti', food: 'steak' }]
+  res.send(food)
 }
 
 const serveFriends = (req, res, next) => {
-    const friends = [{ name: 'Bauze', name: 'El' }]
-    res.send(friends)
+  const friends = [{ name: 'Bauze', name: 'El' }]
+  res.send(friends)
 }
 
 app.get('/', serveIndex);
